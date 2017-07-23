@@ -1,0 +1,306 @@
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "albums" CASCADE[0m
+  [1m[35m (18.5ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "artist_id" integer, "title" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "artists" CASCADE[0m
+  [1m[35m (16.0ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres" CASCADE[0m
+  [1m[35m (16.4ms)[0m  [1m[35mCREATE TABLE "genres" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "media_types" CASCADE[0m
+  [1m[35m (16.5ms)[0m  [1m[35mCREATE TABLE "media_types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists" CASCADE[0m
+  [1m[35m (16.5ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists_tracks" CASCADE[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "playlists_tracks" ("id" bigserial primary key, "playlist_id" integer, "track_id" integer)[0m
+  [1m[35m (5.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  [1m[35m (17.0ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "album_id" integer, "genre_id" integer, "media_type_id" integer, "name" character varying NOT NULL, "composer" character varying, "milliseconds" integer NOT NULL, "bytes" integer, "unit_price" decimal(10,2), "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (9.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "albums" CASCADE[0m
+  [1m[35m (23.6ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "artist_id" integer, "title" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "artists" CASCADE[0m
+  [1m[35m (15.8ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (5.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres" CASCADE[0m
+  [1m[35m (16.3ms)[0m  [1m[35mCREATE TABLE "genres" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "media_types" CASCADE[0m
+  [1m[35m (16.3ms)[0m  [1m[35mCREATE TABLE "media_types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists" CASCADE[0m
+  [1m[35m (16.9ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists_tracks" CASCADE[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "playlists_tracks" ("id" bigserial primary key, "playlist_id" integer, "track_id" integer)[0m
+  [1m[35m (5.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  [1m[35m (17.2ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "album_id" integer, "genre_id" integer, "media_type_id" integer, "name" character varying NOT NULL, "composer" character varying, "milliseconds" integer NOT NULL, "bytes" integer, "unit_price" decimal(10,2), "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "albums" CASCADE[0m
+  [1m[35m (18.8ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "artist_id" integer, "title" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "artists" CASCADE[0m
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (5.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres" CASCADE[0m
+  [1m[35m (17.8ms)[0m  [1m[35mCREATE TABLE "genres" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "media_types" CASCADE[0m
+  [1m[35m (17.3ms)[0m  [1m[35mCREATE TABLE "media_types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (5.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists" CASCADE[0m
+  [1m[35m (17.7ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists_tracks" CASCADE[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "playlists_tracks" ("id" bigserial primary key, "playlist_id" integer, "track_id" integer)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "album_id" integer, "genre_id" integer, "media_type_id" integer, "name" character varying NOT NULL, "composer" character varying, "milliseconds" integer NOT NULL, "bytes" integer, "unit_price" decimal(10,2), "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (11.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "albums" CASCADE[0m
+  [1m[35m (22.7ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "artist_id" integer, "title" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "artists" CASCADE[0m
+  [1m[35m (17.1ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres" CASCADE[0m
+  [1m[35m (16.9ms)[0m  [1m[35mCREATE TABLE "genres" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "media_types" CASCADE[0m
+  [1m[35m (17.0ms)[0m  [1m[35mCREATE TABLE "media_types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (5.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists" CASCADE[0m
+  [1m[35m (18.0ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists_tracks" CASCADE[0m
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "playlists_tracks" ("id" bigserial primary key, "playlist_id" integer, "track_id" integer)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  [1m[35m (16.3ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "album_id" integer, "genre_id" integer, "media_type_id" integer, "name" character varying NOT NULL, "composer" character varying, "milliseconds" integer NOT NULL, "bytes" integer, "unit_price" decimal(10,2), "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "albums" CASCADE[0m
+  [1m[35m (16.3ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "artist_id" integer, "title" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "artists" CASCADE[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres" CASCADE[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "genres" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "media_types" CASCADE[0m
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "media_types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists" CASCADE[0m
+  [1m[35m (16.4ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists_tracks" CASCADE[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "playlists_tracks" ("id" bigserial primary key, "playlist_id" integer, "track_id" integer)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  [1m[35m (15.9ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "album_id" integer, "genre_id" integer, "media_type_id" integer, "name" character varying NOT NULL, "composer" character varying, "milliseconds" integer NOT NULL, "bytes" integer, "unit_price" decimal(10,2), "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "albums" CASCADE[0m
+  [1m[35m (19.9ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "artist_id" integer, "title" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "artists" CASCADE[0m
+  [1m[35m (14.9ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres" CASCADE[0m
+  [1m[35m (16.0ms)[0m  [1m[35mCREATE TABLE "genres" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "media_types" CASCADE[0m
+  [1m[35m (16.5ms)[0m  [1m[35mCREATE TABLE "media_types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists" CASCADE[0m
+  [1m[35m (16.0ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists_tracks" CASCADE[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "playlists_tracks" ("id" bigserial primary key, "playlist_id" integer, "track_id" integer)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "album_id" integer, "genre_id" integer, "media_type_id" integer, "name" character varying NOT NULL, "composer" character varying, "milliseconds" integer NOT NULL, "bytes" integer, "unit_price" decimal(10,2), "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "albums" CASCADE[0m
+  [1m[35m (17.5ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "artist_id" integer, "title" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "artists" CASCADE[0m
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres" CASCADE[0m
+  [1m[35m (14.3ms)[0m  [1m[35mCREATE TABLE "genres" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "media_types" CASCADE[0m
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE TABLE "media_types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists" CASCADE[0m
+  [1m[35m (15.9ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists_tracks" CASCADE[0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "playlists_tracks" ("id" bigserial primary key, "playlist_id" integer, "track_id" integer)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  [1m[35m (16.2ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "album_id" integer, "genre_id" integer, "media_type_id" integer, "name" character varying NOT NULL, "composer" character varying, "milliseconds" integer NOT NULL, "bytes" integer, "unit_price" decimal(10,2), "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (10.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "albums" CASCADE[0m
+  [1m[35m (23.5ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "artist_id" integer, "title" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (5.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "artists" CASCADE[0m
+  [1m[35m (16.0ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (5.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres" CASCADE[0m
+  [1m[35m (16.1ms)[0m  [1m[35mCREATE TABLE "genres" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "media_types" CASCADE[0m
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE TABLE "media_types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (7.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists" CASCADE[0m
+  [1m[35m (16.7ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists_tracks" CASCADE[0m
+  [1m[35m (24.8ms)[0m  [1m[35mCREATE TABLE "playlists_tracks" ("id" bigserial primary key, "playlist_id" integer, "track_id" integer)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  [1m[35m (18.9ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "album_id" integer, "genre_id" integer, "media_type_id" integer, "name" character varying NOT NULL, "composer" character varying, "milliseconds" integer NOT NULL, "bytes" integer, "unit_price" decimal(10,2), "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "albums" CASCADE[0m
+  [1m[35m (17.0ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "artist_id" integer, "title" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "artists" CASCADE[0m
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres" CASCADE[0m
+  [1m[35m (16.0ms)[0m  [1m[35mCREATE TABLE "genres" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (5.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "media_types" CASCADE[0m
+  [1m[35m (16.5ms)[0m  [1m[35mCREATE TABLE "media_types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists" CASCADE[0m
+  [1m[35m (17.6ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists_tracks" CASCADE[0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "playlists_tracks" ("id" bigserial primary key, "playlist_id" integer, "track_id" integer)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  [1m[35m (16.6ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "album_id" integer, "genre_id" integer, "media_type_id" integer, "name" character varying NOT NULL, "composer" character varying, "milliseconds" integer NOT NULL, "bytes" integer, "unit_price" decimal(10,2), "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (8.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "albums" CASCADE[0m
+  [1m[35m (24.4ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "artist_id" integer, "title" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "artists" CASCADE[0m
+  [1m[35m (16.3ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres" CASCADE[0m
+  [1m[35m (16.4ms)[0m  [1m[35mCREATE TABLE "genres" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (5.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "media_types" CASCADE[0m
+  [1m[35m (17.2ms)[0m  [1m[35mCREATE TABLE "media_types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists" CASCADE[0m
+  [1m[35m (18.7ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists_tracks" CASCADE[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "playlists_tracks" ("id" bigserial primary key, "playlist_id" integer, "track_id" integer)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  [1m[35m (17.2ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "album_id" integer, "genre_id" integer, "media_type_id" integer, "name" character varying NOT NULL, "composer" character varying, "milliseconds" integer NOT NULL, "bytes" integer, "unit_price" decimal(10,2), "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "albums" CASCADE[0m
+  [1m[35m (16.0ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "artist_id" integer, "title" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "artists" CASCADE[0m
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres" CASCADE[0m
+  [1m[35m (14.1ms)[0m  [1m[35mCREATE TABLE "genres" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (14.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "media_types" CASCADE[0m
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "media_types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists" CASCADE[0m
+  [1m[35m (13.5ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists_tracks" CASCADE[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "playlists_tracks" ("id" bigserial primary key, "playlist_id" integer, "track_id" integer)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "album_id" integer, "genre_id" integer, "media_type_id" integer, "name" character varying NOT NULL, "composer" character varying, "milliseconds" integer NOT NULL, "bytes" integer, "unit_price" decimal(10,2), "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "albums" CASCADE[0m
+  [1m[35m (15.9ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "artist_id" integer, "title" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "artists" CASCADE[0m
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "artists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "genres" CASCADE[0m
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE "genres" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "media_types" CASCADE[0m
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "media_types" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists" CASCADE[0m
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE TABLE "playlists" ("id" bigserial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "playlists_tracks" CASCADE[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "playlists_tracks" ("id" bigserial primary key, "playlist_id" integer, "track_id" integer)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "tracks" CASCADE[0m
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "tracks" ("id" bigserial primary key, "album_id" integer, "genre_id" integer, "media_type_id" integer, "name" character varying NOT NULL, "composer" character varying, "milliseconds" integer NOT NULL, "bytes" integer, "unit_price" decimal(10,2), "created_at" timestamp, "updated_at" timestamp)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
