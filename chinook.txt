@@ -1,0 +1,19 @@
+1. Artist.where("name=?",'Queen')
+
+2. Track.where(media_type_id: MediaType.where(name: 'ProtectedMPEG-4videofile')).count
+
+3. Genre.where("name=?", 'Hip Hop/Rap')
+
+4. Genre.where("name=?", 'Hip Hop/Rap').count
+
+5. Track.sum("milliseconds")
+
+6. Track.where(media_type_id: MediaType.where("name=?", 'MPEG audio file')).maximum('unit_price')
+
+7. Track.where(media_type_id: MediaType.where("name=?", 'MPEG audio file')).maximum('unit_price').first
+
+8. 
+
+9. Genre.where(media_type_id: MediaType.where("name = ?", 'MPEG audio file')).where(genre_id: Genre.where("name = ?", 'Electronica/Dance').minumum
+
+10. Genre.where(media_type_id: MediaType.where("name = ?", 'MPEG audio file')).where(genre_id: Genre.where("name = ?", 'Electronica/Dance')
